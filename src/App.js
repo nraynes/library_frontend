@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar'
+import ToolBar from '@material-ui/core/Toolbar'
+import Button from '@material-ui/core/Button'
+import InputBase from '@material-ui/core/InputBase'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBar position="static">
+        <ToolBar>
+          <Button color="inherit">Books Dashboard</Button>
+          <Button color="inherit">Check In</Button>
+          <Button color="inherit">Check Out</Button>
+          <InputBase placeholder="Enter ISBN" />
+        </ToolBar>
+      </AppBar>
     </div>
   );
 }
