@@ -16,9 +16,9 @@ function App() {
     <div className="App">
       <AppBar position="static">
         <ToolBar>
-          <Button color="inherit">Books Dashboard</Button>
-          <Button color="inherit">Check In</Button>
-          <Button color="inherit">Check Out</Button>
+          <Button component={Link} to="/" color="inherit">Books Dashboard</Button>
+          <Button component={Link} to="/checkin" color="inherit">Check In</Button>
+          <Button component={Link} to="/checkout" color="inherit">Check Out</Button>
         </ToolBar>
       </AppBar>
       <Switch>
