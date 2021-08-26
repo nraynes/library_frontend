@@ -14,14 +14,14 @@ const useStyles = makeStyles({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 18,
+        fontSize: 22,
     },
     pos: {
         marginBottom: 12,
     },
 });
 
-function BookListItem() {
+function BookListItem(props) {
 
     const classes = useStyles();
 
@@ -29,10 +29,10 @@ function BookListItem() {
         <Card className={classes.root}>
             <CardContent>
                 <Typeography className={classes.title} color="textSecondary" gutterBottom>
-                    This is the title.
+                    {props.book.title}
                 </Typeography>
                 <Typeography className="h6" color="textSecondary">
-                    Book Author
+                    By: {props.book.author}
                 </Typeography>
             </CardContent>
         </Card>

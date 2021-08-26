@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,9 +33,10 @@ function App() {
           Hello check in!
         </Route>
         <Route path="/">
-          <BookList />
+          <BookList books={books} />
         </Route>
       </Switch>
+      <a onClick={() => {setBooks([{title: "Hello world!", author: "Deez nutz"}, {title: "Goodbye cruel world!", author: "Michael Pingleton"}])}}>Add titles</a>
     </div>
   );
 }
