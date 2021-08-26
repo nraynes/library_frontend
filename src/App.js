@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,10 +13,19 @@ import Button from '@material-ui/core/Button'
 import BookList from './components/BookList'
 import Checkin from './components/Checkin'
 import Checkout from './components/Checkout'
+
 function App() {
 
   const [userId, setUserId] = useState("");
   const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    
+    fetch('http://localhost:1000/api/books')
+      .then(response => response.json())
+      .then(data => setBooks(data));
+
+  });
 
   return (
     <div className="App">
@@ -28,9 +37,7 @@ function App() {
         </ToolBar>
       </AppBar>
       <Switch>
-        <Route path="/checkout">
-          <Checkout books={books}/>
-        </Route>
+        <Route path="/checkout" component={props=><Checkout books={books}/>}/>
         <Route path="/checkin">
           <Checkin />
         </Route>
