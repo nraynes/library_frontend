@@ -10,6 +10,7 @@ import {
 import AppBar from '@material-ui/core/AppBar'
 import ToolBar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
+import BookList from './components/BookList';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           Hello check in!
         </Route>
         <Route path="/">
-          Hello dashboard.
+          <BookList />
         </Route>
       </Switch>
     </div>
