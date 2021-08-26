@@ -6,7 +6,8 @@ function Checkin () {
         <div>
             <p>Hello World-Checkin</p>
         </div>
-    )
+    );
+    
 }
 
 export default Checkin;

@@ -6,7 +6,8 @@ function Checkout () {
         <div>
             <p>Hello World-Checkout</p>
         </div>
-    )
+    );
+    
 }
 
 export default Checkout;
