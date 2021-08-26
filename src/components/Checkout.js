@@ -20,7 +20,7 @@ class Checkout extends React.Component {
                 return item.isbn === state.isbn || item.title === state.title
             })
             console.log(newBook)
-            setState({
+            this.setState({
                 books: state.books,
                 book: newBook,
                 isbn: state.isbn,
