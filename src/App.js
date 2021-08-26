@@ -29,7 +29,7 @@ function App() {
       </AppBar>
       <Switch>
         <Route path="/checkout">
-          <Checkout />
+          <Checkout books={books}/>
         </Route>
         <Route path="/checkin">
           <Checkin />
