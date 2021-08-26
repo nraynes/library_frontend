@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 function BookListItem(props) {
 
     const classes = useStyles();
-
     return (
         <Card className={classes.root}>
             <CardContent>

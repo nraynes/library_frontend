@@ -37,7 +37,9 @@ function App() {
         </ToolBar>
       </AppBar>
       <Switch>
-        <Route path="/checkout" component={props=><Checkout books={books}/>}/>
+        <Route path="/checkout">
+          <Checkout/>
+        </Route>
         <Route path="/checkin">
           <Checkin />
         </Route>
@@ -48,7 +50,6 @@ function App() {
           Please log in.
         </Route>
       </Switch>
-      <a onClick={() => {setBooks([{title: "Hello world!", author: "Deez nutz"}, {title: "Goodbye cruel world!", author: "Michael Pingleton"}])}}>Add titles</a>
     </div>
   );
 }
