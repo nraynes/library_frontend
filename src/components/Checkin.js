@@ -1,7 +1,7 @@
 import React, {useState,useRef } from 'react';
 import BookListItem from './BookListItem';
 
-function Checkin () {
+function Checkin (props) {
     const [book, setBook] = useState({})
     const strISBN = useRef()
     function getBook(bookId) {
@@ -21,7 +21,7 @@ function Checkin () {
             <button onClick={() => {
                 getBook(strISBN.current.value)
             }}>Search</button>
-            {book === {} ? <p>No Book Selected</p> : <BookListItem book={book}/>}
+            {book === {} ? <p>No Book Selected</p> : <BookListItem user_id={props.user_id} book={book} setBooks={props.setBooks}/>}
         </div>
     );
 

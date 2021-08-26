@@ -24,15 +24,13 @@ function App() {
   const user = useRef();
   const pass = useRef();
   useEffect(() => {
-    if (Object.keys(userId) === 0) {
+    if (Object.keys(userId).length === 0) {
       history.push('/')
     }
-    if(books.length === 0) {
-      fetch('http://localhost:1000/api/books')
-        .then(response => response.json())
-        .then(data => setBooks(data));
-    }
-  });
+    fetch('http://localhost:1000/api/books')
+      .then(response => response.json())
+      .then(data => setBooks(data));
+  }, []);
 
   function login (username, password) {
     let hash = Sha256.hash(password);
@@ -40,8 +38,7 @@ function App() {
     fetch(`http://localhost:1000/users/${username}/${hash}`)
     .then(res=>res.json())
     .then(data=>{
-      console.log(data)
-      if(Object.keys(data) > 0){
+      if(Object.keys(data).length > 0){
         setUserId(data)
         history.push('/dashboard')
       } else {
@@ -50,15 +47,7 @@ function App() {
     })
   }
 
-  function create (username, password) {
-    let hash = Sha256.hash(password);
-    fetch(`http://localhost:1000/users/create/${username}/${hash}`)
-    .then(res=>res.json())
-    .then(data=>{
-      alert('successfully created account, trying logging in')
-    })
-    .catch(err=>alert('error creating account, try again'))
-  }
+
   return (
     <div className="App">
       <AppBar position="static">
@@ -70,10 +59,10 @@ function App() {
       </AppBar>
       <Switch>
         <Route path="/checkout">
-          <Checkout/>
+          <Checkout user_id={userId.user_id} setBooks={(value) => {setBooks(value)}}/>
         </Route>
         <Route path="/checkin">
-          <Checkin />
+          <Checkin user_id={userId.user_id} setBooks={(value) => {setBooks(value)}}/>
         </Route>
         <Route path="/dashboard">
           <BookList books={books} />
@@ -83,7 +72,7 @@ function App() {
           <input ref={user}></input><br></br>
           <p>Password: </p>
           <input ref={pass}></input><br></br><br></br>
-          <button onClick={()=>{login(user.current.value, pass.current.value)}}>Login</button><button onClick={()=>{create(user.current.value, pass.current.value)}}>Create Account</button>
+          <button onClick={()=>{login(user.current.value, pass.current.value)}}>Login</button>
         </Route>
       </Switch>
     </div>
