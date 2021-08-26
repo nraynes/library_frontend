@@ -22,9 +22,15 @@ function App() {
         </ToolBar>
       </AppBar>
       <Switch>
-        <Route path="/checkout">Hello check out!</Route>
-        <Route path="/checkin">Hello check in!</Route>
-        <Route path="/">Hello dashboard.</Route>
+        <Route path="/checkout">
+          Hello check out!
+        </Route>
+        <Route path="/checkin">
+          Hello check in!
+        </Route>
+        <Route path="/">
+          Hello dashboard.
+        </Route>
       </Switch>
     </div>
   );
