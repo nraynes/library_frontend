@@ -4,14 +4,9 @@ import BookListItem from './BookListItem';
 function BookList(props) {
 
     var items = [];
-    /*
-    items.push(<BookListItem />);
-    items.push(<BookListItem />);
-    items.push(<BookListItem />);
-    */
 
     for(let i in props.books) {
-        items.push(<BookListItem book={props.books[i]} />);
+        items.push(<BookListItem key={i} book={props.books[i]} />);
     }
 
     return (<div className="book_list">{items}</div>);
